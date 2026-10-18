@@ -1,5 +1,5 @@
-/* Oxendine Drywall service worker (oxendine-drywall-v69). Network-first for this site only; never touches api.openai.com or any other origin. */
-var CACHE='oxendine-drywall-v69';
+/* Oxendine Drywall service worker (oxendine-drywall-v70). Network-first for this site only; never touches api.openai.com or any other origin. */
+var CACHE='oxendine-drywall-v70';
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./apple-touch-icon.png']).catch(function(){})}).then(function(){return self.skipWaiting()}))});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(k){return Promise.all(k.filter(function(n){return n!==CACHE}).map(function(n){return caches.delete(n)}))}).then(function(){return self.clients.claim()}))});
 self.addEventListener('fetch',function(e){var r=e.request;if(r.method!=='GET')return;var u;try{u=new URL(r.url)}catch(x){return}if(u.origin!==self.location.origin)return;
